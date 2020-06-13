@@ -16,11 +16,5 @@ def validate_user(username, minlen):
     if not re.match('^[a-z0-9._]*$', username):
         return False
     # Usernames must begin with alpha
-    return username[0].isalpha()
-
-
-
-print(validate_user("blue.kale", 3)) # True
-print(validate_user(".blue.kale", 3)) # Currently True, should be False
-print(validate_user("red_quinoa", 4)) # True
-print(validate_user("_red_quinoa", 4)) # Currently True, should be False
+    if username[0].isnumeric():
+        return False
